@@ -1,6 +1,10 @@
 class Cart {
   constructor() {
-    if (!Cart._instance) Cart._instance = this;
+    if (!Cart._instance) {
+      Cart._instance = this;
+    } else {
+      return Cart._instance;
+    }
     this.container = document.querySelector(".cart-container");
     this.productsService = new ProductsService();
     this.cart = JSON.parse(localStorage.getItem("cart") || "{}");
