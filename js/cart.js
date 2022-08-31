@@ -127,13 +127,13 @@ class Cart {
             throw new Error("Cannot send form");
           }
         })
-        .then((responseText) => {
+        .then(() => {
           form.reset();
           this.cart = {};
           this.saveCart();
           this.updateBadge();
           this.renderCart();
-          window.showAlert("Thank you! " + responseText);
+          window.showAlert("Thank you! " );
           document.querySelector("#modal-cart .close-btn").click();
         })
         .catch((error) =>
