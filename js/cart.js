@@ -47,6 +47,7 @@ class Cart {
             </div>`;
   }
   changeQuantity(ev, operation) {
+    ev.stopPropagation();
     operation.call(this, ev.target.dataset.id);
     this.saveCart();
     this.renderCart();
