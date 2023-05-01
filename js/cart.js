@@ -1,4 +1,7 @@
-class Cart {
+import { ProductsService } from './products-service.js';
+import { showAlert } from './alert.js';
+
+export class Cart {
   constructor() {
     if (Cart._instance) return Cart._instance;
     Cart._instance = this;
@@ -31,10 +34,10 @@ class Cart {
     this.container.innerHTML = cartDomString;
     this.container
       .querySelectorAll(".plus")
-      .forEach( (el) => el.addEventListener("click", (ev) => this.changeQuantity(ev, this.addProductOperation) ) );
+      .forEach((el) => el.addEventListener("click", (ev) => this.changeQuantity(ev, this.addProductOperation)));
     this.container
       .querySelectorAll(".minus")
-      .forEach( (el) => el.addEventListener("click", (ev) => this.changeQuantity(ev, this.deleteProductOperation) ) );
+      .forEach((el) => el.addEventListener("click", (ev) => this.changeQuantity(ev, this.deleteProductOperation)));
     document.querySelector(".cart-badge").innerHTML = Object.keys(this.cart).length;
   }
   createCartProductDomString(product) {
@@ -71,9 +74,9 @@ class Cart {
     localStorage.setItem("cart", JSON.stringify(this.cart));
   }
   async order(ev) {
-    if (Object.keys(this.cart).length === 0) return window.showAlert("Please choose products to order", false);
+    if (Object.keys(this.cart).length === 0) return showAlert("Please choose products to order", false);
     const form = document.querySelector(".form-contacts");
-    if (!form.checkValidity()) return window.showAlert("Please fill form correctly", false);
+    if (!form.checkValidity()) return showAlert("Please fill form correctly", false);
     ev.preventDefault();
     const data = new FormData();
     data.append("cart", JSON.stringify(this.cart));
@@ -86,15 +89,15 @@ class Cart {
       },
       body: data
     })
-    .then(() => {
-      form.reset();
-      this.cart = {};
-      this.saveCart();
-      this.renderCart();
-      window.showAlert("Thank you! " );
-      document.querySelector("#modal-cart .close-btn").click();
-    })
-    .catch( (error) => window.showAlert("There is an error: " + error, false) ); 
+      .then(() => {
+        form.reset();
+        this.cart = {};
+        this.saveCart();
+        this.renderCart();
+        showAlert("Thank you! ");
+        document.querySelector("#modal-cart .close-btn").click();
+      })
+      .catch((error) => showAlert("There is an error: " + error, false));
   }
 }
 new Cart();

@@ -1,4 +1,8 @@
-class ProductList {
+import { Cart } from './cart.js';
+import { ProductsService } from './products-service.js';
+import { showAlert } from './alert.js';
+
+export class ProductList {
     constructor() {
         this.container = document.querySelector('.products-container');
         this.productsService = new ProductsService();
@@ -46,7 +50,7 @@ class ProductList {
         const id = event.target.dataset.id;
         const cart = new Cart();
         cart.addProduct(id);
-        window.showAlert('Added to cart!');
+        showAlert('Added to cart!');
     }
 }
 new ProductList();

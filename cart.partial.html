@@ -1,0 +1,30 @@
+<div class="modal fade" id="modal-cart" tabindex="-1" aria-labelledby="product-info-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartLabel">Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-product-list-container cart-container"></div>
+                <hr>
+                <div class="container">
+                    <form class="form-contacts">
+                        <div class="form-group row">
+                            <label for="client-name" class="col-4 col-form-label">Your name:</label>
+                            <input class="form-control col-8" type="text" id="client-name" name="name" required>
+                        </div>
+                        <div class="form-group row">
+                            <label for="client-email" class="col-4 col-form-label">Your email:</label>
+                            <input class="form-control col-8" type="email" id="client-email" name="email" required>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary order">Order</button>
+            </div>
+        </div>
+    </div>
+</div>

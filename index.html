@@ -12,137 +12,17 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#">Stickerz</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar">
-                    <div class="navbar-nav ">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link" href="#products">Products</a>
-                        <a class="nav-link" href="#">Contacts</a>
-                        <a class="nav-link cart" href="#" data-bs-toggle="modal" data-bs-target="#modal-cart">
-                            Cart
-                            <span class="badge bg-dark cart-badge"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div id="carousel-products" class="carousel slide container" data-bs-ride="true">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carousel-products" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carousel-products" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carousel-products" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carousel-products" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/baby-yoda.svg" class="d-block w-50 mx-auto" alt="Baby Yoda">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/banana.svg" class="d-block w-50 mx-auto" alt="Banana">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/girl.svg" class="d-block w-50 mx-auto" alt="Girl">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/viking.svg" class="d-block w-50 mx-auto" alt="Viking">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-products"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carousel-products"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </header>
+    <header data-include="header.partial.html"></header>
 
-    <main class="container">
-        <h2 id="products">Products</h2>
-        <div class="products-container row">
-        </div>
-    </main>
+    <main data-include="main.partial.html"></main>
 
     <div class="alert-container container"></div>
 
+    <div data-include="product-info.partial.html"></div>
+    <div data-include="cart.partial.html"></div>
 
-    <!-- Modal Product Info -->
-    <div class="modal fade" id="product-info-modal" tabindex="-1" aria-labelledby="product-info-modalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="product-info-modalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img class="d-block w-50 mx-auto product-image" src="img/baby-yoda.svg" alt="Baby Yoda">
-                    <p class="product-description"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-buy"><span class="product-price"></span> -
-                        Buy</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Cart -->
-    <div class="modal fade" id="modal-cart" tabindex="-1" aria-labelledby="product-info-modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cartLabel">Cart</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="cart-product-list-container cart-container"></div>
-                    <hr>
-                    <div class="container">
-                        <form class="form-contacts">
-                            <div class="form-group row">
-                                <label for="client-name" class="col-4 col-form-label">Your name:</label>
-                                <input class="form-control col-8" type="text" id="client-name" name="name" required>
-                            </div>
-                            <div class="form-group row">
-                                <label for="client-email" class="col-4 col-form-label">Your email:</label>
-                                <input class="form-control col-8" type="email" id="client-email" name="email" required>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary close-btn" data-bs-dismiss="modal">Close</button>
-                    <button class="btn btn-primary order">Order</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
-
-
-    <script src="js/alert.js"></script>
-    <script src="js/products-service.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/product-list.js"></script>
+    <script src="https://unpkg.com/html-data-include@2.2.2/html-data-include.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
