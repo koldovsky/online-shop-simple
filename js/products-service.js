@@ -1,7 +1,8 @@
 export class ProductsService {
+    static #instance;
     constructor() {
-        if (!ProductsService._instance) ProductsService._instance = this;
-        return ProductsService._instance;
+        if (!ProductsService.#instance) ProductsService.#instance = this;
+        return ProductsService.#instance;
     }
 
     async getProducts() {
