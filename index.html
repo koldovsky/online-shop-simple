@@ -9,19 +9,18 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="css/alert.css">
     <link rel="shortcut icon" href="img/baby-yoda.svg" type="image/x-icon">
+    <script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header data-include="header.partial.html"></header>
-
-    <main data-include="main.partial.html"></main>
+    <header data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.header.partial.html"></header>
+    <main data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.main.partial.html"></main>
 
     <div class="alert-container container"></div>
 
-    <div data-include="product-info.partial.html"></div>
-    <div data-include="cart.partial.html"></div>
+    <main data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.product-info.partial.html"></main>
+    <main data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.cart.partial.html"></main>
 
-    <script src="https://unpkg.com/html-data-include@2.2.2/html-data-include.js"></script>
     <script src="js/index.js"></script>
 </body>
 
